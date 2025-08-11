@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siemens Products - TechFlow Dynamics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles and reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 25% 25%, #4f46e5 0%, transparent 50%), 
+                        radial-gradient(circle at 75% 75%, #06b6d4 0%, transparent 50%), 
+                        radial-gradient(circle at 50% 50%, #8b5cf6 0%, transparent 50%);
+            opacity: 0.1;
+            animation: backgroundMove 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        /* Navigation Styles (Same as main site) */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 35, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .primary-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.8rem;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg) translate(-50px, -50px);
+            animation: logoShine 3s infinite;
+        }
+
+        @keyframes logoShine {
+            0% { transform: rotate(45deg) translate(-50px, -50px); }
+            100% { transform: rotate(45deg) translate(50px, 50px); }
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.4s ease;
+            pointer-events: none;
+        }
+
+        .nav-item:hover .nav-link::before {
+            left: 100%;
+        }
+
+        .nav-item:hover .nav-link {
+            color: #ffffff;
+            background: rgba(79, 70, 229, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .phone-link {
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: 1px solid #06b6d4;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background: #06b6d4;
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 120px 2rem 20px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9ca3af;
+        }
+
+        .breadcrumb a {
+            color: #06b6d4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #06b6d4, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .siemens-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .siemens-badge {
+            background: linear-gradient(135deg, #00a6d6, #0064a0);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 166, 214, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 100px 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00a6d6, #0064a0, #4f46e5);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00a6d6, #0064a0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 166, 214, 0.3);
+            position: relative;
+        }
+
+        .product-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00a6d6, #0064a0, #4f46e5);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-icon::after {
+            opacity: 1;
+        }
+
+        .product-title {
+            flex: 1;
+        }
+
+        .product-title h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .product-subtitle {
+            color: #9ca3af;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .product-description {
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(0, 166, 214, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .product-features li:hover {
+            background: rgba(0, 166, 214, 0.2);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #00a6d6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00a6d6, #0064a0);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 166, 214, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00a6d6;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #00a6d6;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #00a6d6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 166, 214, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, rgba(0, 166, 214, 0.15), rgba(79, 70, 229, 0.15));
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #00a6d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(79, 70, 229, 0.2);
+            transform: scale(1.1);
+        }
+
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+
+        .hamburger span:nth-child(1) { top: 0px; }
+        .hamburger span:nth-child(2) { top: 8px; }
+        .hamburger span:nth-child(3) { top: 16px; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-menu, .contact-info {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 2rem;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-wrapper, .breadcrumb-container, .hero-container, 
+            .products-container, .cta-container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .product-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="primary-nav">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">⚡</div>
+                    <span class="logo-text">TechFlow Dynamics</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">Services</a>
+                    </li>
+                </ul>
+
+                <div class="contact-info">
+                    <a href="tel:+91 1234567890" class="phone-link">📞 +91 1234567890</a>
+                    <a href="contact.html" class="cta-button">Contact</a>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="breadcrumb">
+        <div class="breadcrumb-container">
+            <nav>
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="index.html#products">Solutions</a>
+                <span>/</span>
+                <span>Siemens Products</span>
+            </nav>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="siemens-logo">
+                    <div class="siemens-badge">
+                        <span>🏭</span>
+                        Siemens Digital Industries Software
+                    </div>
+                </div>
+                <h1>Siemens Product Portfolio</h1>
+                <p>Comprehensive digital solutions for product lifecycle management, design automation, and manufacturing excellence. Partner with industry-leading technology to transform your engineering processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="products-container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🎨</div>
+                        <div class="product-title">
+                            <h3>Siemens Solid Edge</h3>
+                            <p class="product-subtitle">3D CAD & Design Software</p>
+                        </div>
+                    </div>
+                    <p class="product-description">
+                        Advanced 3D CAD software with synchronous technology that combines the speed and simplicity of direct modeling with the flexibility and control of parametric design. Perfect for product development teams seeking faster design iterations.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Synchronous Technology for rapid design changes</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Integrated simulation and analysis tools</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>2D drafting and technical documentation</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Sheet metal design and manufacturing</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Assembly modeling and large assembly management</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Cloud collaboration and data management</span>
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#" class="btn-primary">Request Demo</a>
+                        <a href="#" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">⚙️</div>
+                        <div class="product-title">
+                            <h3>Siemens Teamcenter</h3>
+                            <p class="product-subtitle">PLM & Data Management</p>
+                        </div>
+                    </div>
+                    <p class="product-description">
+                        The world's most widely used PLM system that connects people, processes, and product information across the entire product lifecycle. Manage complex product data and enable global collaboration with enterprise-grade security.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Comprehensive product data management</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Workflow and process automation</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Multi-CAD data management</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Requirements and change management</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Supply chain collaboration</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Compliance and regulatory support</span>
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#" class="btn-primary">Request Demo</a>
+                        <a href="#" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">📈</div>
+                        <div class="product-title">
+                            <h3>Siemens NX</h3>
+                            <p class="product-subtitle">Advanced CAD/CAM/CAE</p>
+                        </div>
+                    </div>
+                    <p class="product-description">
+                        Integrated solution for product design, engineering, and manufacturing. NX delivers the next generation of design, simulation, and manufacturing solutions that enable companies to realize the value of the digital twin.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Advanced 3D modeling and surface design</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Integrated CAM programming</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Multidisciplinary simulation (FEA, CFD)</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Convergent modeling for additive manufacturing</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Advanced assembly design and validation</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Digital twin capabilities</span>
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#" class="btn-primary">Request Demo</a>
+                        <a href="#" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🏭</div>
+                        <div class="product-title">
+                            <h3>Siemens Tecnomatix</h3>
+                            <p class="product-subtitle">Manufacturing Planning</p>
+                        </div>
+                    </div>
+                    <p class="product-description">
+                        Digital manufacturing solution that helps you digitalize manufacturing planning. Plan, simulate, and optimize manufacturing processes with a comprehensive portfolio of manufacturing planning software.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Manufacturing process planning</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Factory simulation and optimization</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Robotics and automation programming</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Quality management planning</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Human factors and ergonomics</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Manufacturing execution systems (MES)</span>
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#" class="btn-primary">Request Demo</a>
+                        <a href="#" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class

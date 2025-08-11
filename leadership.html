@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Team - TechFlow Dynamics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles and reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%); /* Deep dark blue-purple gradient */
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+            min-height: 100vh; /* Ensure full height */
+            display: flex; /* Use flex to center content vertically */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            position: relative; /* Needed for z-index context */
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind other content */
+            background: radial-gradient(circle at 25% 25%, #4f46e5 0%, transparent 50%), /* Vibrant blue-purple */
+                        radial-gradient(circle at 75% 75%, #06b6d4 0%, transparent 50%), /* Cyan-blue */
+                        radial-gradient(circle at 50% 50%, #8b5cf6 0%, transparent 50%); /* Mid purple */
+            opacity: 0.1; /* Subtle effect */
+            animation: backgroundMove 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); } /* Scale and rotate for dynamic effect */
+        }
+
+        /* Main Content Wrapper (adjusted for single section centering) */
+        .main-content-wrapper {
+            flex-grow: 0; /* No need to grow if only one section */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 2rem; /* Reduced padding for single section */
+            position: relative;
+            z-index: 1; /* Above background animation */
+            width: 100%;
+            max-width: 1200px; /* Max width for content */
+            margin: 0 auto; /* Center content horizontally */
+        }
+
+        /* Section Styling */
+        .story-section { /* Reusing story-section for consistent styling */
+            background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .story-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #06b6d4, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .story-section p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            text-align: justify; /* Justify text for a clean look */
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0; /* No bottom margin for the last paragraph */
+        }
+
+        /* Leadership Team Specific Styles */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem; /* Increased gap for better spacing */
+            margin-top: 2.5rem;
+            justify-items: center; /* Center items in the grid */
+        }
+
+        .team-member-card {
+            background: rgba(255, 255, 255, 0.08); /* Slightly brighter background for team cards */
+            border-radius: 12px;
+            padding: 1.8rem; /* Increased padding */
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular photo */
+            background: linear-gradient(45deg, #4f46e5, #06b6d4); /* Gradient placeholder */
+            margin: 0 auto 1.5rem; /* Increased margin below photo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem; /* Emoji size */
+            color: #ffffff;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden; /* Ensure image fits */
+        }
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .team-member-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .team-member-card p {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                padding: 30px 1rem;
+            }
+            .story-section {
+                padding: 2rem;
+            }
+            .story-section h2 {
+                font-size: 2rem;
+            }
+            .story-section p {
+                font-size: 1rem;
+            }
+            .leadership-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            .member-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            .team-member-card h3 {
+                font-size: 1.2rem;
+            }
+            .team-member-card p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content-wrapper {
+                padding: 20px 0.8rem;
+            }
+            .story-section {
+                padding: 1.5rem;
+                border-radius: 10px;
+            }
+            .story-section h2 {
+                font-size: 1.8rem;
+            }
+            .story-section p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="main-content-wrapper">
+        <!-- Leadership Team Section -->
+        <section class="story-section">
+            <h2>Leadership Team 🤝</h2>
+            <p>
+                Our leadership team brings together decades of experience in engineering, software development, and digital transformation. They are the driving force behind TechFlow Dynamics' innovation and commitment to client success.
+            </p>
+            <div class="leadership-grid">
+                <div class="team-member-card">
+                    <div class="member-photo">🧑‍💼</div>
+                    <h3>Dr. Anya Sharma</h3>
+                    <p>CEO & Founder</p>
+                    <p>With a Ph.D. in Mechanical Engineering and 20+ years in PLM, Anya leads our strategic vision.</p>
+                </div>
+                <div class="team-member-card">
+                    <div class="member-photo">👩‍💻</div>
+                    <h3>Mr. Ben Carter</h3>
+                    <p>Chief Technology Officer</p>
+                    <p>Ben, a software architect with 18 years experience, oversees our technological advancements.</p>
+                </div>
+                <div class="team-member-card">
+                    <div class="member-photo">👨‍💼</div>
+                    <h3>Ms. Clara Diaz</h3>
+                    <p>Head of Client Success</p>
+                    <p>Clara ensures our clients achieve maximum value from our solutions with her 15 years in client relations.</p>
+                </div>
+                <div class="team-member-card">
+                    <div class="member-photo">📈</div>
+                    <h3>Mr. David Lee</h3>
+                    <p>VP of Sales & Marketing</p>
+                    <p>David drives our market expansion and client acquisition strategies with 17 years of industry experience.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

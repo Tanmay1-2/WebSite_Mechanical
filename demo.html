@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Demo - TechFlow Dynamics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles and reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%); /* Deep dark blue-purple gradient */
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Needed for z-index context */
+        }
+
+        /* Animated Background (reused from previous context) */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind other content */
+            background: radial-gradient(circle at 25% 25%, #4f46e5 0%, transparent 50%), /* Vibrant blue-purple */
+                        radial-gradient(circle at 75% 75%, #06b6d4 0%, transparent 50%), /* Cyan-blue */
+                        radial-gradient(circle at 50% 50%, #8b5cf6 0%, transparent 50%); /* Mid purple */
+            opacity: 0.1; /* Subtle effect */
+            animation: backgroundMove 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); } /* Scale and rotate for dynamic effect */
+        }
+
+        /* Main Page Container */
+        .demo-page-container {
+            width: 100%;
+            max-width: 900px; /* Constrain overall width */
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Ensure it takes full viewport height for centering */
+            position: relative;
+            z-index: 1; /* Above the background animation */
+        }
+
+        /* Demo Card (the main form wrapper) */
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05); /* Slightly transparent white for glass effect */
+            backdrop-filter: blur(25px); /* Strong blur for frosted glass */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+            border-radius: 20px; /* More rounded corners */
+            padding: 3rem;
+            width: 100%;
+            max-width: 600px; /* Max width for the form itself */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+            text-align: center;
+            animation: fadeInScale 0.8s ease-out forwards; /* Entry animation */
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .demo-card h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #06b6d4, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.05em; /* Slightly tighter text */
+        }
+
+        .demo-card p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.8rem; /* More space between form groups */
+            text-align: left; /* Align labels and inputs to the left */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem; /* Space between label and input */
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.2rem; /* Increased padding */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent input background */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly visible border */
+            border-radius: 12px; /* More rounded inputs */
+            color: #ffffff;
+            font-size: 1rem;
+            box-sizing: border-box; /* Include padding and border in width */
+            transition: all 0.3s ease; /* Smooth transition for focus */
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder,
+        .form-group select option[value=""] {
+            color: #9ca3af;
+            opacity: 0.8;
+        }
+        .form-group select {
+            appearance: none; /* Remove default select arrow */
+            -webkit-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23d1d5db" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #a78bfa; /* Vibrant purple focus border */
+            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.4); /* Larger, softer focus glow */
+            background: rgba(255, 255, 255, 0.15); /* Slightly brighter on focus */
+        }
+
+        /* Submit Button */
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem 2rem; /* Larger padding for a prominent button */
+            background: linear-gradient(135deg, #4f46e5, #7c3aed); /* Stronger gradient */
+            color: white;
+            font-weight: 700; /* Bolder text */
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px; /* Rounded corners */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.05em;
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-5px); /* Lift more on hover */
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.6); /* More pronounced shadow */
+            background: linear-gradient(135deg, #7c3aed, #4f46e5); /* Reverse gradient on hover */
+        }
+
+        /* Message Box for Form Feedback */
+        .message-box {
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            display: none; /* Hidden by default */
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .demo-card {
+                padding: 2rem;
+                border-radius: 15px;
+            }
+            .demo-card h1 {
+                font-size: 2rem;
+            }
+            .demo-card p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            .form-group label {
+                font-size: 0.9rem;
+            }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
+            .submit-button {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .demo-page-container {
+                padding: 1rem;
+            }
+            .demo-card {
+                padding: 1.5rem;
+                border-radius: 10px;
+            }
+            .demo-card h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+            .demo-card p {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            .form-group {
+                margin-bottom: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="demo-page-container">
+        <div class="demo-card">
+            <h1>Schedule Your Exclusive Demo ✨</h1>
+            <p>Ready to see TechFlow Dynamics' solutions in action? Fill out the form below to request a personalized demonstration tailored to your specific needs and challenges.</p>
+
+            <form id="demoForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" placeholder="Tech Innovations Inc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workEmail">Work Email</label>
+                    <input type="email" id="workEmail" name="workEmail" placeholder="john.doe@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number (Optional)</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+1 (555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Area of Interest</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Select an area</option>
+                        <option value="plm">PLM Implementation</option>
+                        <option value="cad">CAD Solutions</option>
+                        <option value="simulation">Simulation & CAE</option>
+                        <option value="digital_twin">Digital Twin & Industry 4.0</option>
+                        <option value="custom_dev">Custom Software Development</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message / Specific Requirements</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project or what you'd like to see in the demo..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Request Demo</button>
+                <div id="messageBox" class="message-box"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.display = 'block'; // Show the message box
+
+            // Simulate form submission (e.g., sending data to a server)
+            // In a real application, you would use fetch() or XMLHttpRequest here.
+            setTimeout(() => {
+                messageBox.style.backgroundColor = 'rgba(76, 175, 80, 0.15)'; // Greenish tint
+                messageBox.style.color = '#4CAF50'; // Green text
+                messageBox.innerHTML = '✅ Your demo request has been sent successfully! We will contact you shortly.';
+                this.reset(); // Clear the form
+            }, 1500); // Simulate a delay for submission
+        });
+    </script>
+</body>
+</html>

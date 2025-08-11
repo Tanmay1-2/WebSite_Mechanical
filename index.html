@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Dynamics - Advanced Engineering Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="primary-nav">
+                <a href="index.html" class="brand-logo"> <div class="logo-icon">⚡</div>
+                    <span class="logo-text">TechFlow Dynamics</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About Us</a>
+                        <div class="dropdown-menu">
+                            <a href="ourstory.html" class="dropdown-link">Our Story</a>
+                            <a href="mis_vision.html" class="dropdown-link">Mission & Vision</a>
+                            <a href="leadership.html" class="dropdown-link">Leadership Team</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">Solutions</a>
+                        <div class="dropdown-menu">
+                            <a href="siemens_products.html" class="dropdown-link">Siemens Products</a>
+                            <a href="hexagon_solutions.html" class="dropdown-link">Hexagon Solutions</a>
+                            <a href="ansys_sol.html" class="dropdown-link">Ansys Simulation</a>
+                            <a href="custom_dev.html" class="dropdown-link">Custom Development</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                        <div class="dropdown-menu">
+                            <a href="plm.html" class="dropdown-link">PLM Implementation</a>
+                            <a href="digital_trans.html" class="dropdown-link">Digital Transformation</a>
+                            <a href="train_supp.html" class="dropdown-link">Training & Support</a>
+                            <a href="consulting.html" class="dropdown-link">Consulting</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="contact-info">
+                    <a href="tel:+91 1234567890" class="phone-link">📞 +91 1234567890</a>
+                    <a href="contact.html" class="cta-button">Contact</a>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-nav-menu">
+            <li class="nav-item">
+                <a href="#about" class="nav-link">About Us</a>
+                <div class="dropdown-menu">
+                    <a href="#about" class="dropdown-link">Our Story</a>
+                    <a href="#about" class="dropdown-link">Mission & Vision</a>
+                    <a href="#about" class="dropdown-link">Leadership Team</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#products" class="nav-link">Solutions</a>
+                <div class="dropdown-menu">
+                    <a href="#products" class="dropdown-link">Siemens Products</a>
+                    <a href="#products" class="dropdown-link">Hexagon Solutions</a>
+                    <a href="#products" class="dropdown-link">Ansys Simulation</a>
+                    <a href="#products" class="dropdown-link">Custom Development</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#services" class="nav-link">Services</a>
+                <div class="dropdown-menu">
+                    <a href="#services" class="dropdown-link">PLM Implementation</a>
+                    <a href="#services" class="dropdown-link">Digital Transformation</a>
+                    <a href="#services" class="dropdown-link">Training & Support</a>
+                    <a href="#services" class="dropdown-link">Consulting</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+            </li>
+             <li class="nav-item" style="margin-top: 2rem;">
+                 <a href="tel:+918056012395" class="phone-link" style="width: 100%; display: block;">📞 Call Us</a>
+            </li>
+             <li class="nav-item" style="margin-top: 1rem;">
+                <a href="#contact" class="cta-button" style="width: 100%; display: block;">Get Started</a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Leading Digital Transformation in Manufacturing</h1>
+                <p>Empowering industries with cutting-edge Siemens, Hexagon, and Ansys solutions. From CAD design to PLM implementation, we deliver comprehensive engineering excellence that drives innovation and growth.</p>
+                <div class="hero-actions">
+                    <a href="#products" class="cta-button">Explore Solutions</a>
+                    <a href="demo.html" class="cta-button" style="background: transparent; border: 2px solid #06b6d4;">Schedule Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="floating-card">
+                        <h4>🎯 Precision Engineering</h4>
+                        <p>Advanced CAD & CAM solutions</p>
+                    </div>
+                    <div class="floating-card">
+                        <h4>⚡ Digital Innovation</h4>
+                        <p>PLM & Industry 4.0</p>
+                    </div>
+                    <div class="floating-card">
+                        <h4>🚀 Future Ready</h4>
+                        <p>Simulation & Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Who We Are</h2>
+                <p>At TechFlow Dynamics, we are dedicated to empowering manufacturing companies with innovative software solutions tailored to meet their unique needs. As an authorized partner of Siemens, Hexagon, and Ansys, we bring you cutting-edge technology and comprehensive support.</p>
+                <p>Our expertise spans across digital transformation, PLM consulting, simulation software, and advanced manufacturing solutions. We serve as your trusted technology partner, helping businesses optimize their processes, improve collaboration, and drive innovation throughout the entire product lifecycle.</p>
+                <ul class="about-features">
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>Leading Digital Transformation Company with 15+ years experience</span>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>Specialized PLM Management Services to optimize product lifecycle</span>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>Cutting-edge Simulation Software Services for accurate insights</span>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>Trusted by Fortune 500 companies and global organizations</span>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>End-to-end solutions from concept to implementation</span>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <span>Industry-leading security and compliance protocols</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="hero-visual about-visual"> <div class="floating-elements">
+                    <div class="floating-card">
+                        <h4>💼 Professional</h4>
+                        <p>Expert consulting</p>
+                    </div>
+                    <div class="floating-card">
+                        <h4>🔧 Technical</h4>
+                        <p>Advanced solutions</p>
+                    </div>
+                    <div class="floating-card">
+                        <h4>🌐 Global</h4>
+                        <p>Worldwide support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-count="50">0</span>
+                <span class="stat-label">+ Global Customers<br>from OEM to MSME</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="100">0</span>
+                <span class="stat-label">+ Software<br>Implementation</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="5">0</span>
+                <span class="stat-label">+ Awards<br>& Recognitions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="15">0</span>
+                <span class="stat-label">+ Years<br>Industry Experience</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="products-container">
+            <div class="section-header">
+                <h2>Our Technology Portfolio</h2>
+                <p>Comprehensive solutions powered by industry leaders</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🎨</div>
+                    <h3>Siemens Solid Edge</h3>
+                    <p>Advanced 3D CAD software with synchronous technology for faster design iterations. Includes integrated simulation, manufacturing tools, and cloud collaboration capabilities for modern product development.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">⚙️</div>
+                    <h3>Siemens Teamcenter</h3>
+                    <p>Comprehensive PLM platform that connects people, processes, and systems across the entire product lifecycle. Manage complex product data and streamline collaboration across global teams.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💡</div>
+                    <h3>Hexagon MSC Apex</h3>
+                    <p>Next-generation CAE platform for rapid simulation modeling. Offers intuitive direct modeling and meshing, accelerating product development and analysis for complex engineering challenges.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🔬</div>
+                    <h3>Ansys Simulation Suite</h3>
+                    <p>Industry-leading software for simulation and analysis, covering structures, fluids, electronics, and more. Enables virtual prototyping and testing to optimize designs and predict performance.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">📈</div>
+                    <h3>Siemens NX</h3>
+                    <p>Integrated CAD/CAM/CAE solution for advanced product development. Offers powerful tools for design, engineering analysis, and manufacturing, supporting the most demanding projects.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">📊</div>
+                    <h3>Custom Software Development</h3>
+                    <p>Tailored software solutions designed to meet your specific engineering and business needs, integrating seamlessly with your existing systems for enhanced efficiency and capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Our Expert Services</h2>
+                <p>Delivering comprehensive support for your digital transformation journey</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>PLM Implementation & Consulting</h3>
+                    <p>End-to-end services for successful Product Lifecycle Management (PLM) system deployment, customization, and optimization. We guide you from strategy to Go-Live.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Digital Transformation Advisory</h3>
+                    <p>Strategic guidance and execution plans to modernize your engineering and manufacturing operations, leveraging Industry 4.0 principles and smart factory concepts.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Training & Technical Support</h3>
+                    <p>Customized training programs and dedicated technical support to ensure your team maximizes the value from your engineering software investments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Legacy Data Migration</h3>
+                    <p>Seamless and secure migration of your historical engineering data to new PLM or CAD systems, ensuring data integrity and accessibility.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Custom Application Development</h3>
+                    <p>Building bespoke applications and integrations to extend the capabilities of your existing engineering software and automate unique workflows.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Simulation & Analysis Services</h3>
+                    <p>Expert-led simulation services for structural, fluid, thermal, and multiphysics analysis, providing insights to optimize designs and predict performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <div class="demo-container">
+            <div class="demo-content">
+                <h2>See Our Solutions in Action</h2>
+                <p>Request a personalized demonstration to witness how our advanced engineering software and services can directly address your business challenges and drive efficiency.</p>
+                <a href="demo.html" class="cta-button">Request a Demo</a>
+            </div>
+            <div class="demo-image">
+                <img src="https://via.placeholder.com/400x300/4f46e5/ffffff?text=Product+Demo" alt="Product Demo Visualization">
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-container">
+            <div class="section-header">
+                <h2>Latest Insights from Our Blog</h2>
+                <p>Stay updated with industry trends, expert articles, and company news</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/350x200/06b6d4/ffffff?text=PLM+Trends" alt="PLM Trends">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Future of PLM: Key Trends to Watch in 2025</h3>
+                        <p class="blog-meta">By TechFlow Team | July 20, 2025 | PLM</p>
+                        <p class="blog-excerpt">Explore the evolving landscape of Product Lifecycle Management and how emerging technologies are shaping the future of product development.</p>
+                        <a href="#" class="blog-link">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/350x200/4f46e5/ffffff?text=Digital+Twin" alt="Digital Twin Technology">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Unlocking Potential with Digital Twin Technology</h3>
+                        <p class="blog-meta">By Expert Contributor | July 15, 2025 | Industry 4.0</p>
+                        <p class="blog-excerpt">Discover how Digital Twin technology is revolutionizing manufacturing processes, from predictive maintenance to enhanced product design.</p>
+                        <a href="#" class="blog-link">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/350x200/8b5cf6/ffffff?text=CAD+Innovation" alt="CAD Innovation">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Next-Gen CAD: What's New in Solid Edge 2025</h3>
+                        <p class="blog-meta">By TechFlow Team | July 10, 2025 | CAD Software</p>
+                        <p class="blog-excerpt">A deep dive into the latest features and improvements in Siemens Solid Edge, designed to boost your productivity and design capabilities.</p>
+                        <a href="#" class="blog-link">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>TechFlow Dynamics</h3>
+                <p>Empowering industries with cutting-edge engineering solutions and digital transformation expertise.</p>
+                <p>&copy; 2025 TechFlow Dynamics. All rights reserved.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#products">Solutions</a>
+                <a href="#services">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Our Solutions</h3>
+                <a href="#">Siemens Solid Edge</a>
+                <a href="#">Siemens Teamcenter</a>
+                <a href="#">Hexagon MSC Apex</a>
+                <a href="#">Ansys Simulation</a>
+                <a href="#">Custom Development</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Chennai, Tamil Nadu, India</p>
+                <p><a href="tel:+91 234567890">+91 1234567890</a></p>
+                <p><a href="mailto:info@techflowdynamics.com">info@techflowdynamics.com</a></p>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#" style="display: inline-block; margin-right: 10px; color: #9ca3af; font-size: 1.5rem;">🔗</a>
+                    <a href="#" style="display: inline-block; margin-right: 10px; color: #9ca3af; font-size: 1.5rem;">👍</a>
+                    <a href="#" style="display: inline-block; color: #9ca3af; font-size: 1.5rem;">🐦</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Designed with ❤️ by Your Team</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const navLinks = mobileNavOverlay.querySelectorAll('.nav-link, .dropdown-link, .phone-link, .cta-button'); // Get all clickable elements in the mobile menu
+
+            // Function to close the mobile menu
+            const closeMobileMenu = () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.style.overflowY = 'auto'; // Re-enable scrolling
+            };
+
+            // Toggle menu on hamburger click
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mobileNavOverlay.classList.toggle('active');
+                if (mobileNavOverlay.classList.contains('active')) {
+                    document.body.style.overflowY = 'hidden'; // Disable scrolling when menu is open
+                } else {
+                    document.body.style.overflowY = 'auto'; // Re-enable scrolling
+                }
+            });
+
+            // Close menu when a link is clicked (for smooth scroll)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Only close if it's an anchor link and not a dropdown parent
+                    if (link.href.includes('#') || link.classList.contains('phone-link') || link.classList.contains('cta-button')) {
+                        closeMobileMenu();
+                    }
+                    // For dropdowns, if it's a parent link, let it open the dropdown
+                    // If it's a dropdown-link, it's usually an anchor, so close the menu
+                });
+            });
+
+            // Close menu if clicked outside (optional, but good for UX)
+            // mobileNavOverlay.addEventListener('click', (event) => {
+            //     if (event.target === mobileNavOverlay) {
+            //         closeMobileMenu();
+            //     }
+            // });
+
+
+            // Stats Counter Animation (if you want this feature)
+            const animateCount = (element, start, end, duration) => {
+                let current = start;
+                const range = end - start;
+                const increment = end > start ? 1 : -1;
+                const stepTime = Math.abs(Math.floor(duration / range));
+                const timer = setInterval(() => {
+                    current += increment;
+                    element.textContent = current;
+                    if (current === end) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            };
+
+            const statsSection = document.querySelector('.stats-section');
+            let statsAnimated = false; // Flag to ensure animation runs once
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        document.querySelectorAll('.stat-number').forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-count'), 10);
+                            animateCount(stat, 0, target, 2000); // 2000ms = 2 seconds
+                        });
+                        statsAnimated = true; // Set flag to true after animation
+                        observer.unobserve(entry.target); // Stop observing after animation
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // Smooth scroll for nav links (if not using native scroll-behavior)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
